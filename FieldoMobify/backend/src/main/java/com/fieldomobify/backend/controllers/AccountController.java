@@ -1,6 +1,5 @@
 package com.fieldomobify.backend.controllers;
 
-import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -26,12 +25,10 @@ import com.fieldomobify.backend.repositories.AccountRepository;
 public class AccountController {
 	
 	@Autowired
-	AccountRepository accountRepository;
+	private AccountRepository accountRepository;
 	
 	@GetMapping("/accounts")
 	public List<Account> getAllAccounts() {
-//		Sort sortByCreatedAtDesc = new Sort(Sort.Direction.DESC, "createdAt");
-//		return accountRepository.findAll(sortByCreatedAtDesc);
 		return accountRepository.findAll();
 		
 	}
@@ -60,5 +57,11 @@ public class AccountController {
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
+	
+	//Since we can register many accounts with the same email. When users login with an email, we must display all accounts using that email.
+	@GetMapping("/accounts/email/{email}")
+	public List<Account> getAccountsByEmail(@PathVariable("email") String email) {
+		return accountRepository.findByEmail(email);
+	} 
 	
 }
