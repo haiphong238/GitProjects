@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Fieldomobify | Admin dashboard</title>
+	<meta name="description" content="Splasher is a Dashboard & Admin Site Responsive Template by hencework." />
+	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Splasher Admin, Splasheradmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+	<meta name="author" content="hencework"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- Data table CSS -->
+	<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- Toast CSS -->
+	<link href="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Morris Charts CSS -->
+    <link href="../vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- Chartist CSS -->
+	<link href="../vendors/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- Data table CSS -->
+	<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- vector map CSS -->
+	<link href="../vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- Custom CSS -->
+	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	
+	<!-- create custom field css and js start here -->
+	<link rel='stylesheet' href='assets/css/bootstrap.min.css'>
+	
+	
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+    <div class="wrapper theme-2-active navbar-top-light horizontal-nav">
+		<!-- Top Menu Items -->
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="nav-wrap">
+				<div class="mobile-only-brand pull-left">
+					<div class="nav-header pull-left">
+						<div class="logo-wrap">
+							<a href="index.html">
+								<img class="brand-img" src="../img/logo.png" alt="brand"/>
+								<span class="brand-text"><img  src="../img/brand.png" alt="brand"/></span>
+							</a>
+						</div>
+					</div>	
+					<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="zmdi zmdi-menu"></i></a>
+					<a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-search"></i></a>
+					<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+					<form id="search_form" role="search" class="top-nav-search collapse pull-left">
+						<div class="input-group">
+							<input type="text" name="example-input1-group2" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button type="button" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+					<ul class="nav navbar-right top-nav pull-right">
+						
+						<li class="dropdown alert-drp">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-notifications top-nav-icon"></i><span class="top-nav-icon-badge"></span></a>
+							<ul  class="dropdown-menu alert-dropdown" data-dropdown-in="bounceIn" data-dropdown-out="bounceOut">
+								<li>
+									<div class="notification-box-head-wrap">
+										<span class="notification-box-head pull-left inline-block">notifications</span>
+										<a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+										<div class="clearfix"></div>
+										<hr class="light-grey-hr ma-0"/>
+									</div>
+								</li>
+								<li>
+									<div class="streamline message-nicescroll-bar">
+										<div class="sl-item">
+											<a href="javascript:void(0)">
+												<div class="icon bg-green">
+													<i class="ti-briefcase "></i>
+												</div>
+												<div class="sl-content">
+													<span class="inline-block capitalize-font  pull-left truncate head-notifications">
+													New subscription created</span>
+													<span class="inline-block font-11  pull-right notifications-time">2pm</span>
+													<div class="clearfix"></div>
+													<p class="truncate">Your customer subscribed for the basic plan. The customer will pay $25 per month.</p>
+												</div>
+											</a>	
+										</div>
+										<hr class="light-grey-hr ma-0"/>
+										<div class="sl-item">
+											<a href="javascript:void(0)">
+												<div class="icon bg-yellow">
+													<i class="zmdi zmdi-trending-down"></i>
+												</div>
+												<div class="sl-content">
+													<span class="inline-block capitalize-font  pull-left truncate head-notifications txt-warning">Server #2 not responding</span>
+													<span class="inline-block font-11 pull-right notifications-time">1pm</span>
+													<div class="clearfix"></div>
+													<p class="truncate">Some technical error occurred needs to be resolved.</p>
+												</div>
+											</a>	
+										</div>
+										<hr class="light-grey-hr ma-0"/>
+										<div class="sl-item">
+											<a href="javascript:void(0)">
+												<div class="icon bg-blue">
+													<i class="zmdi zmdi-email"></i>
+												</div>
+												<div class="sl-content">
+													<span class="inline-block capitalize-font  pull-left truncate head-notifications">2 new messages</span>
+													<span class="inline-block font-11  pull-right notifications-time">4pm</span>
+													<div class="clearfix"></div>
+													<p class="truncate"> The last payment for your G Suite Basic subscription failed.</p>
+												</div>
+											</a>	
+										</div>
+										<hr class="light-grey-hr ma-0"/>
+										<div class="sl-item">
+											<a href="javascript:void(0)">
+												<div class="sl-avatar">
+													<img class="img-responsive" src="../img/avatar.jpg" alt="avatar"/>
+												</div>
+												<div class="sl-content">
+													<span class="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
+													<span class="inline-block font-11  pull-right notifications-time">1pm</span>
+													<div class="clearfix"></div>
+													<p class="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+												</div>
+											</a>	
+										</div>
+										<hr class="light-grey-hr ma-0"/>
+										<div class="sl-item">
+											<a href="javascript:void(0)">
+												<div class="icon bg-red">
+													<i class="zmdi zmdi-storage"></i>
+												</div>
+												<div class="sl-content">
+													<span class="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span>
+													<span class="inline-block font-11  pull-right notifications-time">1pm</span>
+													<div class="clearfix"></div>
+													<p class="truncate">consectetur, adipisci velit.</p>
+												</div>
+											</a>	
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="notification-box-bottom-wrap">
+										<hr class="light-grey-hr ma-0"/>
+										<a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+										<div class="clearfix"></div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings  top-nav-icon"></i></a>
+						</li>
+						<li class="dropdown auth-drp">
+							<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="../img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span><span class="user-auth-name inline-block">Fieldomobify Admin <span class="ti-angle-down"></span></span></a>
+							<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+								<li>
+									<a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+								</li>
+								<li>
+									<a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
+								</li>
+								<li>
+									<a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+								</li>
+								<li>
+									<a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+								</li>
+								<li class="divider"></li>
+								<li class="sub-menu show-on-hover">
+									<a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
+									<ul class="dropdown-menu open-left-side">
+										<li>
+											<a href="#"><i class="zmdi zmdi-check text-success"></i><span>available</span></a>
+										</li>
+										<li>
+											<a href="#"><i class="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
+										</li>
+										<li>
+											<a href="#"><i class="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
+										</li>
+									</ul>	
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>	
+				</div>
+			</nav>
+			<!-- /Top Menu Items -->
+			
+			<!-- Left Sidebar Menu -->
+			<div class="fixed-sidebar-left">
+				<ul class="nav navbar-nav side-nav nicescroll-bar">
+					
+					<li>
+						<a class="active" href="index.html"><div class="pull-left"><i class="ti-book mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="clearfix"></div></a>
+					</li>
+					<li>
+                        <a href="#" >
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Customer</span></div><div class="clearfix"></div>
+                        </a>                       
+                    </li>
+
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#ecom_dr">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Equipements</span></div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jobs.html">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Jobs</span></div> <div class="clearfix"></div>
+                        </a>
+                    </li>
+					<li>
+						<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Reports</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
+						<ul id="ecom_dr" class="collapse collapse-level-1">
+							<li>
+								<a href="#">Add New</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Settings</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
+						<ul id="ecom_dr" class="collapse collapse-level-1">
+							<li>
+								<a href="custom-fields.html">Custom fields</a>
+							</li>						
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- /Left Sidebar Menu -->
+			
+			
+				
+			
+		
+        <!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container pt-30">
+				<!-- Row -->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default border-panel card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Custom Fields </h6>
+									
+								</div>
+								
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+								<div  class="tab-struct custom-tab-1 mt-20">										
+										<div class="tab-content" id="myTabContent_7">
+											<div  id="home_7" class="tab-pane fade active in" role="tabpanel">
+												<div class="table-wrap mt-10" id="myTabs_7">
+													<div class="table-responsive">
+														<div class="pull-right">
+															<button class="btn btn-primary btn-rounded btn-icon left-icon" data-toggle="modal" data-target="#responsive-modal" data-whatever="@getbootstrap"><i class="fa fa-plus"></i> <span>Add New Customer</span></button>
+															
+														</div><br><br>
+														<table id="edit_datable_2" class="table table-hover display mb-30" >
+															<thead>
+																<tr>
+																	<th>Name</th>
+																	<th>Location</th>
+																	<th>City</th>
+																	<th>Person</th>
+																	<th>Mobile</th>										
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td><a href="edit-customer.html">Opionion X PVT. LTD</a></td>
+																	<td>Karve nagar,Pune</td>
+																	<td>Maharashtra</td>
+																	<td>Milind Shahane</td>
+																	<td>+91 444 557 5566</td>												
+																</tr>
+																<tr>
+																	<td><a href="edit-customer.html">Fieldo PVT. LTD.</a></td>
+																	<td>Karual Baug </td>
+																	<td>Delhi</td>
+																	<td>Raj Mehta</td>
+																	<td>+91 3356 754 2486</td>	
+																</tr>
+																<tr>
+																	<td><a href="edit-customer.html">Mototive Engineering</a></td>
+																	<td>Surat</td>
+																	<td>Surat</td>
+																	<td>Rajasthan</td>
+																	<td>+91 9856 788 9427</td>	
+																</tr>
+																<tr>
+																	<td><a href="edit-customer.html">Formura Directs</a></td>
+																	<td>Kaushlya Nagar</td>
+																	<td>Kerala</td>
+																	<td>Muthu Swami Kumar</td>
+																	<td>+91 3356 754 2486</td>	
+																</tr>
+															</tbody>
+														</table>
+														
+														</div>
+													</div>	
+											</div>
+											<div  id="profile_7" class="tab-pane fade" role="tabpanel">
+											
+												
+											</div>
+											<div id="dropdown_13" class="tab-pane fade " role="tabpanel">
+												
+											</div>
+											
+										</div>
+									</div>	
+									
+								</div>								
+						</div>	
+					</div>
+				</div>
+				<!-- /Row -->
+
+			</div>
+			
+			<!-- Footer -->
+			<footer class="footer pl-30 pr-30">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<p>2018 &copy; Fieldomobify</p>
+						</div>
+						<div class="col-sm-6 text-right">
+							<p>Follow Us</p>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+			
+		</div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+	<!-- add customer popup model -->
+	
+	<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+														<h4 class="modal-title">Add New Customer</h4>
+													</div>
+													<div class="modal-body">
+														<form action="#" class="form-horizontal">
+														<div class="form-body">															
+															<div class="row">
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Organization Name</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control" placeholder="Tripal Pvt. Ltd.">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Upload Logo</label>
+																		<div class="col-md-9">
+																			<form action="#" class="dropzone">
+																				<div class="fallback">
+																					<input name="file" type="file" multiple />
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- /Row -->
+															
+															<!-- /Row -->
+															<hr class="light-grey-hr"/>
+															<!-- /Row -->
+															<div class="row">
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Location</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																			<img src="assets/img/map.jpg" class="img-responsive">
+																		</div>
+																	</div>
+																</div>
+																
+															</div>
+															<!-- /Row -->
+															<hr class="light-grey-hr"/>
+															<div class="row">
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Person</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																<!--/span-->
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Email</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Phone</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Mobile</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<label class="control-label col-md-3">Custom Field</label>
+																		<div class="col-md-9">
+																			<input type="text" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																
+																<!--/span-->
+															</div>
+															
+															
+															<!-- /Row -->
+														</div>														
+													</form>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-danger">Save changes</button>
+													</div>
+												</div>
+											</div>
+										</div>
+	
+	
+	<!-- end add customer popup -->
+	
+	<!-- JavaScript -->
+	
+    <!-- jQuery -->
+    <script src="../vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+	<!-- Data table JavaScript -->
+	<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	
+	<!-- Slimscroll JavaScript -->
+	<script src="dist/js/jquery.slimscroll.js"></script>
+	
+	<!-- Progressbar Animation JavaScript -->
+	<script src="../vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="../vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+	
+	<!-- Fancy Dropdown JS -->
+	<script src="dist/js/dropdown-bootstrap-extended.js"></script>
+	
+	<!-- Sparkline JavaScript -->
+	<script src="../vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+	
+	<!-- Owl JavaScript -->
+	<script src="../vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	
+	<!-- Switchery JavaScript -->
+	<script src="../vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	
+	<!-- Vector Maps JavaScript -->
+    <script src="../vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+	<script src="../vendors/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="../vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="dist/js/vectormap-data.js"></script>
+	
+	<!-- Toast JavaScript -->
+	<script src="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+	
+	<!-- Piety JavaScript -->
+	<script src="../vendors/bower_components/peity/jquery.peity.min.js"></script>
+	<script src="dist/js/peity-data.js"></script>
+	
+	<!-- EChartJS JavaScript -->
+	<script src="../vendors/bower_components/echarts/dist/echarts-en.min.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+    <script src="../vendors/bower_components/raphael/raphael.min.js"></script>
+    <script src="../vendors/bower_components/morris.js/morris.min.js"></script>
+    <script src="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+	
+	<!-- ChartJS JavaScript -->
+	<script src="../vendors/chart.js/Chart.min.js"></script>
+	
+	<!-- Data table JavaScript -->
+	<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../vendors/bower_components/editable-table/mindmup-editabletable.js"></script>
+	<script src="../vendors/bower_components/editable-table/numeric-input-example.js"></script>
+	<script src="dist/js/editable-table-data.js"></script>
+	
+	<!-- Init JavaScript -->
+	<script src="dist/js/init.js"></script>
+	<script src="dist/js/dashboard-data.js"></script>
+</body>
+
+</html>

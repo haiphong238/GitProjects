@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Fieldomobify | Admin dashboard</title>
+    <meta name="description" content="Splasher is a Dashboard & Admin Site Responsive Template by hencework." />
+    <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Splasher Admin, Splasheradmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+    <meta name="author" content="hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap table CSS -->
+    <link href="../vendors/bower_components/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet" type="text/css" />
+    <!-- Toast CSS -->
+    <link href="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
+
+    <!-- Chartist CSS -->
+    <link href="../vendors/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Data table CSS -->
+    <link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- vector map CSS -->
+    <link href="../vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- create custom field css and js start here -->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+    <!-- Bootstrap Datetimepicker JavaScript -->
+    <script type="text/javascript" src="../vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Bootstrap Daterangepicker JavaScript -->
+    <script src="../vendors/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Form Picker Init JavaScript -->
+    <script src="dist/js/form-picker-data.js"></script>
+
+    <!-- xeditable css -->
+    <link href="../vendors/bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 60px;
+            /* 60px to make the container go all the way to the bottom of the topbar */
+            padding-bottom: 10px;
+        }
+        
+        #components {
+            min-height: 600px;
+            margin-top: 5px;
+        }
+        
+        #target {
+            min-height: 200px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        
+        #target .component {
+            border: 1px solid #fff;
+        }
+        
+        #temp {
+            width: 500px;
+            background: white;
+            border: 1px dotted #ccc;
+            border-radius: 10px;
+        }
+        
+        .popover-content form {
+            margin: 0 auto;
+            width: 213px;
+        }
+        
+        .popover-content form .btn {
+            margin-right: 10px
+        }
+        
+        #source {
+            min-height: 500px;
+        }
+        
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+    </style>
+    <link href="js/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- custom field css and js end here -->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="la-anim-1"></div>
+    </div>
+    <!-- /Preloader -->
+    <div class="wrapper theme-2-active navbar-top-light horizontal-nav">
+        <!-- Top Menu Items -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="nav-wrap">
+                <div class="mobile-only-brand pull-left">
+                    <div class="nav-header pull-left">
+                        <div class="logo-wrap">
+                            <a href="index.html">
+                                <img class="brand-img" src="../img/logo.png" alt="brand" />
+                                <span class="brand-text"><img  src="../img/brand.png" alt="brand"/></span>
+                            </a>
+                        </div>
+                    </div>
+                    <a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="zmdi zmdi-menu"></i></a>
+                    <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-search"></i></a>
+                    <a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+                    <form id="search_form" role="search" class="top-nav-search collapse pull-left">
+                        <div class="input-group">
+                            <input type="text" name="example-input1-group2" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+							<button type="button" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
+							</span>
+                        </div>
+                    </form>
+                </div>
+                <div id="mobile_only_nav" class="mobile-only-nav pull-right">
+                    <ul class="nav navbar-right top-nav pull-right">
+
+                        <li class="dropdown alert-drp">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-notifications top-nav-icon"></i><span class="top-nav-icon-badge"></span></a>
+                            <ul class="dropdown-menu alert-dropdown" data-dropdown-in="bounceIn" data-dropdown-out="bounceOut">
+                                <li>
+                                    <div class="notification-box-head-wrap">
+                                        <span class="notification-box-head pull-left inline-block">notifications</span>
+                                        <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+                                        <div class="clearfix"></div>
+                                        <hr class="light-grey-hr ma-0" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="streamline message-nicescroll-bar">
+                                        <div class="sl-item">
+                                            <a href="javascript:void(0)">
+                                                <div class="icon bg-green">
+                                                    <i class="ti-briefcase "></i>
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications">
+													New subscription created</span>
+                                                    <span class="inline-block font-11  pull-right notifications-time">2pm</span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate">Your customer subscribed for the basic plan. The customer will pay $25 per month.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <hr class="light-grey-hr ma-0" />
+                                        <div class="sl-item">
+                                            <a href="javascript:void(0)">
+                                                <div class="icon bg-yellow">
+                                                    <i class="zmdi zmdi-trending-down"></i>
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-warning">Server #2 not responding</span>
+                                                    <span class="inline-block font-11 pull-right notifications-time">1pm</span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate">Some technical error occurred needs to be resolved.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <hr class="light-grey-hr ma-0" />
+                                        <div class="sl-item">
+                                            <a href="javascript:void(0)">
+                                                <div class="icon bg-blue">
+                                                    <i class="zmdi zmdi-email"></i>
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications">2 new messages</span>
+                                                    <span class="inline-block font-11  pull-right notifications-time">4pm</span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate"> The last payment for your G Suite Basic subscription failed.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <hr class="light-grey-hr ma-0" />
+                                        <div class="sl-item">
+                                            <a href="javascript:void(0)">
+                                                <div class="sl-avatar">
+                                                    <img class="img-responsive" src="../img/avatar.jpg" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
+                                                    <span class="inline-block font-11  pull-right notifications-time">1pm</span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <hr class="light-grey-hr ma-0" />
+                                        <div class="sl-item">
+                                            <a href="javascript:void(0)">
+                                                <div class="icon bg-red">
+                                                    <i class="zmdi zmdi-storage"></i>
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span>
+                                                    <span class="inline-block font-11  pull-right notifications-time">1pm</span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate">consectetur, adipisci velit.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="notification-box-bottom-wrap">
+                                        <hr class="light-grey-hr ma-0" />
+                                        <a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings  top-nav-icon"></i></a>
+                        </li>
+                        <li class="dropdown auth-drp">
+                            <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="../img/user1.png" alt="user_auth" class="user-auth-img img-circle" /><span class="user-online-status"></span><span class="user-auth-name inline-block">Fieldomobify Admin <span class="ti-angle-down"></span></span>
+                            </a>
+                            <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                                <li>
+                                    <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
+                                </li>
+                                <li>
+                                    <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="sub-menu show-on-hover">
+                                    <a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
+                                    <ul class="dropdown-menu open-left-side">
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-check text-success"></i><span>available</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- /Top Menu Items -->
+
+        <!-- Left Sidebar Menu -->
+        <div class="fixed-sidebar-left">
+            <ul class="nav navbar-nav side-nav nicescroll-bar">
+
+                <li>
+                    <a href="index.html">
+                        <div class="pull-left"><i class="ti-book mr-20"></i><span class="right-nav-text">Dashboard</span></div>
+                        <div class="clearfix"></div>
+                    </a>
+                    <li>
+                        <a href="#" >
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Customer</span></div><div class="clearfix"></div>
+                        </a>                       
+                    </li>
+
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#ecom_dr">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Equipements</span></div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="jobs.html">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Jobs</span></div> <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Reports</span></div>
+                            <div class="pull-right"><i class="ti-angle-down"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="ecom_dr" class="collapse collapse-level-1">
+                            <li>
+                                <a href="#">Add New</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
+                            <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i><span class="right-nav-text">Settings</span></div>
+                            <div class="pull-right"><i class="ti-angle-down"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="ecom_dr" class="collapse collapse-level-1">
+                            <li>
+                                <a href="custom-fields.html">Custom fields</a>
+                            </li>
+                        </ul>
+                    </li>
+            </ul>
+        </div>
+        <!-- /Left Sidebar Menu -->
+
+        <!-- Main Content -->
+        <div class="page-wrapper">
+            <div class="container pt-30">
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default border-panel card-view">
+                            <div class="panel-heading">
+                                <div class="pull-left">
+                                    <h6 class="panel-title txt-dark">Edit Job Details</h6>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-12">
+                                            <table style="clear: both" class="table table-bordered table-striped" id="user">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Jobs</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width:35%">Name</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">Routine Visit</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:35%">Type</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">Service</a></td>
+                                                    </tr>
+													 <tr>
+                                                        <td style="width:35%">Organization</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">EMCO LTD</a></td>
+                                                    </tr>
+													 <tr>
+                                                        <td style="width:35%">Location</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">LOCAMTL001</a></td>
+                                                    </tr>
+													 <tr>
+                                                        <td style="width:35%">People</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">Archana Bhave</a></td>
+                                                    </tr>
+													 <tr>
+                                                        <td style="width:35%">Equipements</td>
+                                                        <td style="width:65%"><a data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo" href="">-</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                      </div>
+                                    <div class="col-lg-8">
+                                        <table class="table table-striped table-bordered mb-0">
+                                            <thead>
+												<tr>
+													<th colspan="5">Schedule</th>
+												</tr>
+                                                <tr>
+                                                    <th>Schedule </th>
+                                                    <th>Assigned To</th>
+                                                    <th>Assigned By</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo" href="">Shridhar Awate</a></td>
+                                                    <td>Archana Bhave</td>
+                                                    <td><span class="label label-success">Completed</span> </td>
+                                                </tr>
+												<tr>
+													<td>01/22/18 11:11 AM</td>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo" href="">John Smith</a></td>
+                                                    <td>Harshad Jahagirdar</td>
+                                                    <td><span class="label label-warning">Hold</span> </td>
+                                                </tr>												
+                                            </tbody>
+                                        </table>
+										<br>
+										 <table class="table table-striped table-bordered mb-0">
+                                            <thead>
+												<tr>
+													<th colspan="5"> Product</th>
+												</tr>
+                                                <tr>
+                                                    <th>Name </th>
+                                                    <th>Rate</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+													<th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo" href="">MTAL1</a></td>
+                                                    <td>15.00</td>
+                                                    <td>5</td>
+													<td>75</td>
+                                                    <td>11/22/2018</td>
+                                                </tr>
+												<tr>
+													<td><a data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo" href="">MTAL1</a></td>
+                                                    <td>15.00</td>
+                                                    <td>5</td>
+													<td>75</td>
+                                                    <td>11/22/2018</td>
+                                                </tr>
+												<tr>
+													<td colspan="3" style="text-align:right;">Total</td>
+                                                    <td>150.00</td>
+													<td>&nbsp;</td>
+                                                </tr>												
+                                            </tbody>
+                                        </table>
+										
+										<br>
+										 <table class="table table-striped table-bordered mb-0">
+                                            <thead>
+												<tr>
+													<th colspan="4"> Time</th>
+												</tr>
+                                                <tr>
+                                                    <th>Start </th>
+                                                    <th>End</th>
+                                                    <th>Time in Min</th>
+                                                    <th>Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>25.00</td>
+													<td><a data-toggle="modal" data-target="#exampleModal4" data-whatever="@mdo" href="">Travel</a></td>
+                                                </tr>
+												<tr>
+													<td>11/22/18 11:11 AM</td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>25.00</td>
+													<td>Job</td>
+                                                </tr>																						
+                                            </tbody>
+                                        </table>
+										<br>
+										 <table class="table table-striped table-bordered mb-0">
+                                            <thead>
+												<tr>
+													<th colspan="4"> Attachements</th>
+												</tr>
+                                                <tr>
+                                                    <th>JobForm </th>
+                                                    <th>Last Updated</th>
+                                                    <th>Person</th>
+                                                    <th>Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal5" data-whatever="@mdo" href="">Job Site Report 1</a></td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>Shridhar Awate</td>
+													<td>JobForm</td>
+                                                </tr>
+												 <tr>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal5" data-whatever="@mdo" href="">Job Site Report 1</a></td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>Shridhar Awate</td>
+													<td>JobForm</td>
+                                                </tr>
+												<tr>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal5" data-whatever="@mdo" href="">Job Site Report 1</a></td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>Shridhar Awate</td>
+													<td>Site</td>
+                                                </tr>
+												<tr>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal5" data-whatever="@mdo" href="">Job Site Report 1</a></td>
+                                                    <td>11/22/18 11:11 AM</td>
+                                                    <td>Shridhar Awate</td>
+													<td>Signature</td>
+                                                </tr>												
+                                            </tbody>
+                                        </table>
+										<br>
+										<h5 class="mb-10"><strong>Comments/ Timeline</strong></h5>
+										<div class="alert alert-success alert-dismissable alert-style-1">
+											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+											<i class="icon-check"></i>
+											Accepted by Shridhar Awate
+
+										</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Row -->
+
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer pl-30 pr-30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>2018 &copy; Fieldomobify</p>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <p>Follow Us</p>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- /Footer -->
+
+            </div>
+            <!-- /Main Content -->
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Edit Job Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Job Name<span class="help"> e.g. "john doe"</span></label>
+                            <input type="text" class="form-control" value="AC Repairing">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Organization<span class="help"> e.g. "john doe"</span></label>
+                            <input type="text" class="form-control" value="Ajsoft Solutions">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Show Start and End Date</label>
+                            <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="11/08/18 to 22/08/18" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Assigned Person Name</label>
+                            <input type="text" class="form-control" placeholder="Mr. Akasha Somani">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Created Person</label>
+                            <input type="text" class="form-control" placeholder="Ms. Rakhi Charwad">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">select Status</label>
+                            <select class="form-control">
+                                <option>Open</option>
+                                <option>Hold</option>
+                                <option>Completed</option>
+                                <option>Resolve</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Custom Field</label>
+                            <input type="text" class="form-control" placeholder="Helping text">
+                            <span class="help-block mt-10 mb-0">Add custom field</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Edit Product Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Name</label>
+                            <input type="text" class="form-control" value="MTAL1">
+							 <label class="control-label mb-10 text-left">Rate</label>
+                            <input type="text" class="form-control" value="15.00">
+							 <label class="control-label mb-10 text-left">Quantity</label>
+                            <input type="text" class="form-control" value="5">
+							 <label class="control-label mb-10 text-left">Amount</label>
+                            <input type="text" class="form-control" value="75">
+							<label class="control-label mb-10 text-left">Date</label>
+                            <input type="text" class="form-control" value="11/22/2018">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Edit Schedule Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Schedule </label>
+                            <input type="text" class="form-control" value="11/22/18 11:11 AM">
+							 <label class="control-label mb-10 text-left"> Assigned To</label>
+                            <input type="text" class="form-control" value="Shridhar Awate">
+							 <label class="control-label mb-10 text-left">Status</label>
+                            <select class="form-control">
+														<option>Open</option>
+														<option>Close</option>
+														<option>Hold</option>
+														<option>Resolve</option>
+													</select>
+							<label class="control-label mb-10 text-left"> Assigned By</label>
+                            <input type="text" class="form-control" value="Archana Bhave">
+                            <br>
+                            <button type="button" class="btn btn-success btn-xs">Add New Custom Field</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Edit Job Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Name</label>
+                            <input type="text" class="form-control" value="Routine Visit">
+							 <label class="control-label mb-10 text-left">Type</label>
+                            <input type="text" class="form-control" value="Service">
+							 <label class="control-label mb-10 text-left">Organization</label>
+                            <input type="text" class="form-control" value="EMCO LTD">
+							 <label class="control-label mb-10 text-left">Location</label>
+                            <input type="text" class="form-control" value="LOCAMTL001">
+							 <label class="control-label mb-10 text-left">People</label>
+                            <input type="text" class="form-control" value="Archana Bhave">
+							 <label class="control-label mb-10 text-left">Equipment</label>
+                            <input type="text" class="form-control" value="-">
+                            <br>
+                            <button type="button" class="btn btn-success btn-xs">Add New Custom Field</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Edit Time Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Start</label>
+                            <input type="text" class="form-control" value="11/22/18 11:11 AM">
+							 <label class="control-label mb-10 text-left">End</label>
+                            <input type="text" class="form-control" value="11/22/18 11:11 AM">
+							 <label class="control-label mb-10 text-left">Time in Min</label>
+                            <input type="text" class="form-control" value="25.00">
+							 <label class="control-label mb-10 text-left">Type</label>
+                            <input type="text" class="form-control" value="Travel">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="exampleModalLabel1">Job Site Report</h5>
+                </div>
+                <div class="modal-body img-responsive">
+                    <img src="assets/img/map.jpg">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end popup -->
+
+    <!-- JavaScript -->
+
+    <!-- jQuery -->
+    <script src="../vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Moment JavaScript -->
+    <script type="text/javascript" src="../vendors/bower_components/moment/min/moment-with-locales.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../vendors/bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+    <!-- Form-xeditable Init JavaScript -->
+    <script src="dist/js/form-xeditable-data.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- Owl JavaScript -->
+    <script src="../vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+    <!-- Switchery JavaScript -->
+    <script src="../vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+
+    <!-- Bootstrap Daterangepicker JavaScript -->
+    <script src="../vendors/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Form Picker Init JavaScript -->
+    <script src="dist/js/form-picker-data.js"></script>
+
+    <!-- Bootstrap-table JavaScript -->
+    <script src="../vendors/bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="dist/js/bootstrap-table-data.js"></script>
+
+</body>
+
+</html>
