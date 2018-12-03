@@ -58,8 +58,8 @@ public class JobController {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 	
-		@GetMapping("/jobs/organization/{organizationId}")
-		public List<Job> getAccountsByEmail(@PathVariable("organizationId") String organizationId) {
+		@GetMapping("/organization/{organizationId}/jobs")
+		public List<Job> getJobsByOrganization(@PathVariable("organizationId") String organizationId) {
 			return jobRepository.findByOrganization(organizationId);
 		} 
 }

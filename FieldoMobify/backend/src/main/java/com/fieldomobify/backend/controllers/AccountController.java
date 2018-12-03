@@ -59,9 +59,9 @@ public class AccountController {
 	}
 	
 	//Since we can register many accounts with the same email. When users login with an email, we must display all accounts using that email.
-	@GetMapping("/accounts/email/{email}")
-	public List<Account> getAccountsByEmail(@PathVariable("email") String email) {
-		return accountRepository.findByEmail(email);
+	@GetMapping("/email/{emailId}/accounts")
+	public List<Account> getAccountsByEmail(@PathVariable("emailId") String emailId) {
+		return accountRepository.findByEmail(emailId);
 	} 
 	
 }
