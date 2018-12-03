@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   validMessage: string = "";
+  height:string = "800px";
 
   constructor(private router: Router, private titleService: Title, private accountService: AccountService) { }
 
@@ -24,6 +25,12 @@ export class SignupComponent implements OnInit {
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+    this.height = `${window.innerHeight}px`;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  resize(event: any) {
+    this.height = `${event.target.innerHeight}px`;
   }
 
   submitSignup() {
