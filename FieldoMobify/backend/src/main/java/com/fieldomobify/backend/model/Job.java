@@ -16,6 +16,7 @@ public class Job {
 	private Date endDate;
 	private String assignedTo;
 	private String status;
+	private String location;
 	private String organization;
 	public String getId() {
 		return id;
@@ -70,6 +71,12 @@ public class Job {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 }

@@ -18,9 +18,6 @@ public class Organization {
 	@Field("locations")
 	private List<Location> locations;
 	
-	@Field("people")
-	private List<Person> people;
-	
 	public String getId() {
 		return id;
 	}
@@ -51,14 +48,6 @@ public class Organization {
 
 	public void setLocations(List<Location> locations) {
 		this.locations = locations;
-	}
-
-	public List<Person> getPeople() {
-		return people;
-	}
-
-	public void setPeople(List<Person> people) {
-		this.people = people;
 	}
 
 	public String getAccount() {
