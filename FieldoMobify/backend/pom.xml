@@ -19,6 +19,14 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<repositories>
+	    <repository> 
+	        <id>repository.spring.release</id> 
+	        <name>Spring GA Repository</name> 
+	        <url>http://repo.spring.io/release</url> 
+	    </repository>
+	</repositories>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
