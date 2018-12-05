@@ -24,8 +24,18 @@ public class Account implements UserDetails, Serializable {
     public Account() {
 
     }
+    
+    public Account(String id, String company, String email, String password) {
+		super();
+		this.id = id;
+		this.company = company;
+		this.email = email;
+		this.password = password;
+	}
 
-    public String getId() {
+
+
+	public String getId() {
         return id;
     }
 

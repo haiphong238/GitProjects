@@ -39,14 +39,12 @@
 											<input type="password" class="form-control" required="" id="password" placeholder="Enter password" formControlName="password">
 										</div>
 										
-										<!--<div class="form-group">
+										<div class="form-group" *ngIf='accounts && accounts.length'>
 											<label class="control-label mb-10 text-left">Select Account</label>
-											<select class="form-control">
-												<option>Account List</option>
-												<option>ABC Cleaning</option>
-												<option>XYZ Services</option>
+											<select class="form-control"  formControlName="selectedAccount">
+												<option *ngFor='let account of accounts' [ngValue]="account.company">{{account.company}}</option>
 											</select>
-										</div>-->
+										</div>
 										
 										<div class="form-group">
 											<div class="checkbox checkbox-primary pr-10 pull-left">

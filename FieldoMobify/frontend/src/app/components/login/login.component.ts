@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { IAccount } from './account';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   validMessage: string = "";
   height: string = "800px";
+  accounts: IAccount[];
 
   model: any = {};
 
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
     this.titleService.setTitle('Fieldomobify | Admin Login dashboard');
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
+      selectedAccount: new FormControl('',Validators.required)
     });
 
     sessionStorage.setItem('token', '');
@@ -38,8 +41,23 @@ export class LoginComponent implements OnInit {
     this.height = `${event.target.innerHeight}px`;
   }
 
+
+
   submitLogin() {
-    let url = '/server/login';
+    if(this.loginForm.controls['selectedAccount'].value == '')
+    {
+      this.accountService.getAccountsByEmail(this.loginForm.controls['email'].value).subscribe(
+        data => {this.accounts = data as IAccount[]},
+        err => console.error(err),
+        () => console.log('accounts loaded')
+      );
+    }else{
+      console.log('Login with account: ' + this.loginForm.controls['selectedAccount'].value);
+      
+    }
+
+
+    /*let url = '/server/login';
     this.http.post<Observable<boolean>>(url, {
       userName: this.model.username,
       password: this.model.password
@@ -50,7 +68,7 @@ export class LoginComponent implements OnInit {
       } else {
         alert("Authentication failed.")
       }
-    });
+    });*/
 
   }
 

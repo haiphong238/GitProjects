@@ -26,7 +26,11 @@ public class AuthServerSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().ignoringAntMatchers("/oauth/token/");
+        http.csrf().ignoringAntMatchers("/oauth/token/")
+        .and()
+        .authorizeRequests()
+        .antMatchers("/api/v1/accounts*")
+        .permitAll();
     }
 
     @Bean(name="authenticationManager")

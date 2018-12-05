@@ -25,14 +25,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/api/v1/accounts*")
+                .permitAll()
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('plug2Field')")
                 .and()
                 .headers().addHeaderWriter((request, response) -> {
-                    response.addHeader("Access-Control-Allow-Origin", "*");
-                    if (request.getMethod().equals("OPTIONS")) {
-                        response.setHeader("Access-Control-Allow-Methods", request.getHeader("Access-Control-Request-Method"));
-                        response.setHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
-                    }
+                    response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+                        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS, PATCH");
+                        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With");
                 });
     }
 }
