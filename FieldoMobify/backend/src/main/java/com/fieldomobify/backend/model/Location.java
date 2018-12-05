@@ -1,6 +1,7 @@
 package com.fieldomobify.backend.model;
 
 public class Location {
+	private String id;
 	private String name;
 	private String address;
 	private String city;
@@ -43,6 +44,12 @@ public class Location {
 	}
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
