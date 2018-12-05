@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/plug2field
+#    mongo:
+#      host: localhost
+#      port: 27017
+#      database: common
+#      username: dev
+#      password: dev
+server:
+  port: 8080
+  servlet:
+    context-path: /plug2field
